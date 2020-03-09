@@ -2,27 +2,31 @@ from turtle import *
 from random import *
 from math import *
 
+def points_outwards():
+	head = heading()
+	twrd = abs(towards(0, 0) + 180) % 360
+
+	print(head, twrd)
+
+	if abs(twrd - head) < 90:
+		return True
+
+	return False 
+
 speed(9)
+delay(0)
 pensize(7)
 screen = screensize()
-radius = sqrt((0.6 * screen[0])**2 + (0.8 * screen[1])**2)
-
-
-def check_situation():
-	if distance(0, 0) >= radius:
-		check = abs((towards(0, 0) - 180) % 360 - heading())
-		while check < 175 or check > 205:
-			circle(10, 5)
-			check = abs((towards(0, 0) - 180) % 360 - heading())
-	range = randrange(-60, 60)
-	while range == 0:
-		range = randrange(-60, 60)
-	circle(range, randrange(10,100))
+radius = 0.3 * screen[0]
 
 while True:
 	color(random(), random(), random())
-	check_situation()
-	range = randrange(-60, 60)
-	while range == 0:
-		range = randrange(-60, 60)
-	circle(range, randrange(10,100))
+	range = randrange(15, 50)
+	directions = (-1, 1)
+	cdir = directions[randrange(2)]
+
+	if distance(0, 0) >= radius:
+		while points_outwards():
+			circle(range * cdir, 250 / range)
+
+	circle(range * cdir, randrange(30,120))
