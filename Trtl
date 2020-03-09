@@ -1,0 +1,28 @@
+from turtle import *
+from random import *
+from math import *
+
+speed(9)
+pensize(7)
+screen = screensize()
+radius = sqrt((0.6 * screen[0])**2 + (0.8 * screen[1])**2)
+
+
+def check_situation():
+	if distance(0, 0) >= radius:
+		check = abs((towards(0, 0) - 180) % 360 - heading())
+		while check < 175 or check > 205:
+			circle(10, 5)
+			check = abs((towards(0, 0) - 180) % 360 - heading())
+	range = randrange(-60, 60)
+	while range == 0:
+		range = randrange(-60, 60)
+	circle(range, randrange(10,100))
+
+while True:
+	color(random(), random(), random())
+	check_situation()
+	range = randrange(-60, 60)
+	while range == 0:
+		range = randrange(-60, 60)
+	circle(range, randrange(10,100))
