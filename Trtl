@@ -12,6 +12,7 @@ def check_situation():
 	if distance(0, 0) >= radius:
 		check = abs((towards(0, 0) - 180) % 360 - heading())
 		while check < 175 or check > 205:
+			color(random(), random(), random())
 			circle(10, 23)
 			check = abs((towards(0, 0) - 180) % 360 - heading())
 	circle (randrange(10, 50) * help[(randrange(2))], randrange(10, 50))
