@@ -5,7 +5,7 @@ from math import *
 speed(0)
 pensize(7)
 screen = screensize()
-radius = sqrt((0.6 * screen[0])**2 + (0.8 * screen[1])**2)
+radius = sqrt((0.5 * screen[0])**2 + (0.7 * screen[1])**2)
 help = (1, -1)
 
 def check_situation():
@@ -13,11 +13,11 @@ def check_situation():
 		check = abs((towards(0, 0) - 180) % 360 - heading())
 		while check < 175 or check > 205:
 			color(random(), random(), random())
-			circle(10, 23)
+			circle(randrange(10, 50), randrange(10, 50))
 			check = abs((towards(0, 0) - 180) % 360 - heading())
-	circle (randrange(10, 50) * help[(randrange(2))], randrange(10, 50))
+	circle (randrange(10, 80) * help[(randrange(2))], randrange(10, 50))
 
 while True:
 	color(random(), random(), random())
 	check_situation()
-	circle (randrange(10, 50) * help[(randrange(2))], randrange(10, 50))
+	circle (randrange(10, 80) * help[(randrange(2))], randrange(10, 50))
